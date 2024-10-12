@@ -21,11 +21,10 @@ echo -n "taye1234@gmail.com" | base64
 
 echo -n "tyz12367rtgy781" | base64
 
-
-
-
-
 echo "dGF5ZTEyMzRAZ21haWwuY29t" | base64 --decode
+
+# Create a ConfigMap for the Static Content
+# We’ll use a ConfigMap to store the static HTML content and serve it through NGINX.
 
 
  
