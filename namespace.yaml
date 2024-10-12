@@ -1,0 +1,6 @@
+apiVersion: v1
+kind: Namespace  # Kind is used to specify the kubernetes object being referenced by the manifest
+metadata:
+  name: dev
+
+
