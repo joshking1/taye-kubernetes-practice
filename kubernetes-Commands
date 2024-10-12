@@ -26,5 +26,18 @@ echo "dGF5ZTEyMzRAZ21haWwuY29t" | base64 --decode
 # Create a ConfigMap for the Static Content
 # We’ll use a ConfigMap to store the static HTML content and serve it through NGINX.
 
+# Create the ConfigMap with the static content:
+
+kubectl apply -f nginx-content-configmap.yaml
+
+# Deploy NGINX
+
+kubectl apply -f nginx-deployment.yaml
+
+# Steps to Update Static Content Without Redeploying:
+
+
+
+
 
  
