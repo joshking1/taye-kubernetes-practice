@@ -1,0 +1,19 @@
+# ConfigMap to store nginx.conf file
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  nginx.conf: |
+    events {
+      worker_connections 1024;
+    }
+    http {
+      server {
+        listen 80;
+        location / {
+          root /usr/share/nginx/html;
+          index index.html;
+        }
+      }
+    }
