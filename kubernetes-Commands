@@ -11,4 +11,21 @@ kubectl get namespaces
 
 kubectl apply -f dev-namespace.yaml
 
+# Kubernetes Secret 
+
+# Base64 Encoding the Username and Password:
+
+echo -n "taye1234@gmail.com" | base64
+
+# For the password:
+
+echo -n "tyz12367rtgy781" | base64
+
+
+
+
+
+echo "dGF5ZTEyMzRAZ21haWwuY29t" | base64 --decode
+
+
  
