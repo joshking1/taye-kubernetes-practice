@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment   # Kind is used to specify the kubernetes object being referenced by the manifests
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 1  # Since you're serving static content, 1 replica might be sufficient.
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: nginx-content-volume
+          mountPath: /usr/share/nginx/html/index.html
+          subPath: index.html
+      volumes:
+      - name: nginx-content-volume
+        configMap:
+          name: nginx-content
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  labels:
+    app: nginx
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort
+
+  # We will modify the NGINX Deployment to mount the index.html file from the ConfigMap and serve it as the main page.
