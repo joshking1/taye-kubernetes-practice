@@ -7,4 +7,8 @@ kubectl create namespace dev
 
 kubectl get namespaces 
 
+# Create a namespace declaatively. In this case you need to create a file called dev-namespace.yaml, and add the manifest information to create the namespace
+
+kubectl apply -f dev-namespace.yaml
+
  
