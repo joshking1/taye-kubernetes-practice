@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-content
+  labels:
+    app: nginx
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Kubernetes Administrator Course - Updated</title>
+    </head>
+    <body>
+        <h1>Updated: This is Josh, trainer of Kubernetes Administrator course</h1>
+        <p>You now must read all five chapters before starting the practical part of the course.</p>
+    </body>
+    </html>
