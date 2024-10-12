@@ -1,6 +1,6 @@
 # Apache Deployment
 apiVersion: apps/v1
-kind: Deployment     # kind specifies the type of Kubernetes object that the manifest represents
+kind: Deployment     # In this case we are using kind to specify the kubernetes object being referenced by the manifest 
 metadata:
   name: apache-deployment
   labels:
