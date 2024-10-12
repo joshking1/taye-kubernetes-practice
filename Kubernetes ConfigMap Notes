@@ -1,0 +1,30 @@
+Configuration data refers to the settings, parameters, and options that define how an application, service, or system should behave. 
+Instead of hardcoding these values directly into the application code or image, configuration data is stored externally (like in a file, environment variables, or a system like Kubernetes ConfigMaps). 
+This allows the behavior of the application to be customized or adjusted without modifying the underlying application code or redeploying the application.
+
+What Does This ConfigMap Do?
+Stores the NGINX Configuration: The ConfigMap stores the nginx.conf file, which defines how the NGINX web server should behave, including:
+
+How many worker connections it can handle.
+Where to serve content from.
+Which port to listen on (port 80).
+The default file (index.html) to serve when the root URL is accessed.
+Dynamically Configures NGINX: By mounting this ConfigMap in a Kubernetes deployment (like your NGINX deployment), you allow NGINX to use this configuration file instead of the default one in the image. 
+This makes it easy to update NGINX's behavior by simply updating the ConfigMap.
+
+If you want to update the NGINX configuration to add a new server block or modify settings, you would do the following:
+
+Edit the ConfigMap:
+
+# kubectl edit configmap nginx-config
+
+After updating the ConfigMap, restart the NGINX pods to apply the new configuration:
+
+# kubectl rollout restart deployment nginx-deployment
+
+This will trigger a rolling restart of the pods with the new configuration, ensuring there’s no downtime, and the new NGINX config will take effect.
+
+Benefits:
+  
+Easy Updates: You can update the configuration without rebuilding the Docker image.
+Rolling Updates: By leveraging Kubernetes’ rolling update capabilities, you can ensure smooth, zero-downtime updates to your configuration.
