@@ -1,6 +1,6 @@
 # NGINX Deployment
 apiVersion: apps/v1
-kind: Deployment         The name of the kubernetes object referenced by the manifest
+kind: Deployment         # In this case we are using kind to specify the kubernetes object the manifests represents 
 metadata:
   name: nginx-deployment
   labels:
