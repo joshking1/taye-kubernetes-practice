@@ -1,0 +1,10 @@
+
+# Creating the namespace imperatively 
+
+kubectl create namespace prod 
+
+kubectl create namespace dev 
+
+kubectl get namespaces 
+
+ 
