@@ -36,6 +36,19 @@ kubectl apply -f nginx-deployment.yaml
 
 # Steps to Update Static Content Without Redeploying:
 
+# Apply the Updated ConfigMap: Apply the modified ConfigMap. This command updates the ConfigMap in the Kubernetes cluster with the new content:
+
+kubectl apply -f nginx-content-configmap.yaml
+
+# Restart the NGINX Pods: ConfigMaps are loaded when the pod starts, so after updating the ConfigMap, you'll need to restart the NGINX pod(s) for the changes to take effect. 
+# You can do this by restarting the deployment, which will terminate the old pod(s) and start new ones that will load the updated ConfigMap.
+# To restart the NGINX deployment:
+
+kubectl rollout restart deployment nginx-deployment
+
+# This command will restart all pods in the nginx-deployment, causing them to pick up the updated index.html from the ConfigMap.
+#The command kubectl rollout restart deployment nginx-deployment is used to restart the pods managed by a deployment in Kubernetes.
+#It does this in a controlled, safe way without causing downtime or disruption to the service.
 
 
 
