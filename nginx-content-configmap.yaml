@@ -16,3 +16,5 @@ data:
         <p>You must read three chapters before starting the practical part of the course.</p>
     </body>
     </html>
+    
+# This ConfigMap contains the static content in an HTML file called index.html.
